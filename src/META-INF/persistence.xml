@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="DigitalPharmacyPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>BLL.Fatura</class>
+    <class>BLL.Furnizuesi</class>
+    <class>BLL.Perdoruesit</class>
+    <class>BLL.TipiStafit</class>
+    <class>BLL.Produkti</class>
+    <class>BLL.Terapia</class>
+    <class>BLL.Komuna</class>
+    <class>BLL.LlojiProduktit</class>
+    <class>BLL.Klienti</class>
+    <class>BLL.Stafi</class>
+    <class>BLL.Farmacia</class>
+    <class>BLL.ProduktetETerapise</class>
+    <class>BLL.ProduktetEFurnizuesit</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=DigitalPharmacy"/>
+      <property name="javax.persistence.jdbc.user" value="auron"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="auron123"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
+</persistence>

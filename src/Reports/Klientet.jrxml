@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="85576eb3-8c79-48bd-827d-ba4f44a1584b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Klienti."Klienti_ID" AS Klienti_Klienti_ID,
+     Klienti."Emri" AS Klienti_Emri,
+     Klienti."Mbiemri" AS Klienti_Mbiemri,
+     Klienti."DataLindjes" AS Klienti_DataLindjes,
+     Klienti."Gjinia" AS Klienti_Gjinia,
+     Klienti."NrTelefonit" AS Klienti_NrTelefonit,
+     Komuna."EmriKomunes" AS Komuna_EmriKomunes,
+     Klienti."EmriRruges" AS Klienti_EmriRruges,
+     Klienti."NumriHyrjes" AS Klienti_NumriHyrjes,
+     Klienti."Kati" AS Klienti_Kati,
+     Klienti."Pershkrimi" AS Klienti_Pershkrimi
+FROM
+     "dbo"."Komuna" Komuna INNER JOIN "dbo"."Klienti" Klienti ON Komuna."Komuna_ID" = Klienti."Komuna_ID"]]>
+	</queryString>
+	<field name="Klienti_Klienti_ID" class="java.lang.Integer"/>
+	<field name="Klienti_Emri" class="java.lang.String"/>
+	<field name="Klienti_Mbiemri" class="java.lang.String"/>
+	<field name="Klienti_DataLindjes" class="java.sql.Date"/>
+	<field name="Klienti_Gjinia" class="java.lang.String"/>
+	<field name="Klienti_NrTelefonit" class="java.lang.String"/>
+	<field name="Komuna_EmriKomunes" class="java.lang.String"/>
+	<field name="Klienti_EmriRruges" class="java.lang.String"/>
+	<field name="Klienti_NumriHyrjes" class="java.lang.Integer"/>
+	<field name="Klienti_Kati" class="java.lang.Integer"/>
+	<field name="Klienti_Pershkrimi" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="5865f88c-9e8d-4e2a-9c8f-732672008db9"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="aa694813-ef89-4d96-bfca-a62b934cc55c"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Klientet]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="14bbf44c-7755-4f2f-82e0-a21bc7b16e84"/>
+					<textElement textAlignment="Right">
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Lista]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="62603014-d9a2-4347-b794-cfec84a36ebf"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="3019bebd-db36-42e1-b5b6-94c55191a73a"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="33" height="18" forecolor="#000000" uuid="23f453e3-b64a-486f-9f6f-da3c37656118"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="33" y="0" width="97" height="18" forecolor="#000000" uuid="440537bf-02dd-4b46-97e4-70744dc12e80"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Emri]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="130" y="0" width="86" height="18" forecolor="#000000" uuid="3eb1fff1-20c5-416e-a865-0efa3bcb662f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Mbiemri]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="216" y="0" width="89" height="18" forecolor="#000000" uuid="8e3c94e1-a0b6-4ed5-8412-de0ea4b81339"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[DataLindjes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="305" y="0" width="41" height="18" forecolor="#000000" uuid="4efff819-7566-4f18-9657-28dfc4dffbad"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Gjinia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="346" y="0" width="86" height="18" forecolor="#000000" uuid="471924ab-9839-457d-8947-69c3b22a1cd4"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[NrTelefonit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="432" y="0" width="72" height="18" forecolor="#000000" uuid="bca17702-0391-40f2-b3e6-afc8d4a16b5b"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Komuna]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="504" y="0" width="72" height="18" forecolor="#000000" uuid="7abe2b22-fd38-431c-8d00-ce1e8f33edfa"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rruga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="576" y="0" width="50" height="18" forecolor="#000000" uuid="111e0157-f9d7-4c5d-a18e-d56591279b88"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Hyrja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="626" y="0" width="51" height="18" forecolor="#000000" uuid="9e15e84f-e45a-463d-a20b-37efc1306945"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kati]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="677" y="0" width="115" height="18" forecolor="#000000" uuid="7927cac0-5e5b-4686-b223-269ae83b5f3f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pershkrimi]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="18" uuid="8ec8f620-90b2-4f5f-acfe-366f55b70bea"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="33" height="18" uuid="d1738721-3e43-4074-b82e-f313d00d278d"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_Klienti_ID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="33" y="0" width="97" height="18" uuid="6b402a14-d865-46d1-9800-8705e5e5b8f1"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_Emri}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="130" y="0" width="86" height="18" uuid="641c171b-9774-4dc9-9bc9-8ede139cefe7"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_Mbiemri}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
+					<reportElement style="Detail" positionType="Float" x="216" y="0" width="89" height="18" uuid="f85e184e-f88f-4aeb-9396-f793b87803c4"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_DataLindjes}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="305" y="0" width="41" height="18" uuid="6d0aec98-820b-4911-a77f-6d984b78ce63"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_Gjinia}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="346" y="0" width="86" height="18" uuid="17f483b2-cf71-43bd-af87-e80229e02867"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_NrTelefonit}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="432" y="0" width="72" height="18" uuid="f2ada860-c3c6-439a-8055-ba9eb15bcc59"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Komuna_EmriKomunes}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="504" y="0" width="72" height="18" uuid="fd17fb2a-cdbe-42c7-be54-d6411f3c728e"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_EmriRruges}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="576" y="0" width="50" height="18" uuid="ab9ef08b-7e47-4c67-822f-247ffad652ad"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_NumriHyrjes}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="626" y="0" width="51" height="18" uuid="125f8c8f-0172-4a04-9931-81043353d8e9"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_Kati}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="677" y="0" width="115" height="18" uuid="85fbe460-a2d4-47e9-a712-4367e18e29e3"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Klienti_Pershkrimi}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fd55ac67-39f3-4dd1-ad36-f1aea340f74b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="f347164c-8a9f-45cb-a1a9-3f3d4fbd258a"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="591bbf3b-4aec-4c54-a190-34227cc8e9c7"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="3cf94f38-cb5a-4370-aa9f-5c3a8236845e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="61b50018-af7c-4d06-975a-004c66dd3309"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
